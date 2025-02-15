@@ -1,7 +1,7 @@
 import https from "node:https";
 import { XMLToJSON } from "./util";
 
-export const request = <T = any>(url: string) => {
+export const request = <T>(url: string) => {
   let raw = "";
   return new Promise<T>((resolve, reject) => {
     const req = https.request(
@@ -13,13 +13,13 @@ export const request = <T = any>(url: string) => {
       (res) => {
         if (res.statusCode && res.statusCode >= 400) {
           reject(
-            new Error(`Request failed with status code ${res.statusCode}`)
+            new Error(`Request failed with status code ${res.statusCode}`),
           );
         }
         res.on("data", (d) => {
           raw += d.toString();
         });
-      }
+      },
     );
     req.on("error", (e) => {
       reject(e);

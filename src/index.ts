@@ -12,5 +12,6 @@ import { NameCheap } from "./core";
     TLD: "com",
   });
 
+  // eslint-disable-next-line no-console
   console.log(res.ApiResponse.CommandResponse.DomainDNSGetHostsResult);
 })();

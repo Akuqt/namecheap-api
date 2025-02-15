@@ -4,8 +4,8 @@ import xmlConverter from "xml-js";
 
 export type { ParsedUrlQueryInput };
 
-export const stringifyParams = <T = any>(
-  params: T & ParsedUrlQueryInput & NameCheapGlobalParams
+export const stringifyParams = <T>(
+  params: T & ParsedUrlQueryInput & NameCheapGlobalParams,
 ) => {
   return stringify({
     ...params,
@@ -26,6 +26,7 @@ export const XMLToJSON = (xml: string) => {
   return transformJson(JSON.parse(json));
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const transformJson = (obj: any): any => {
   if (typeof obj !== "object" || obj === null) {
     return obj;
@@ -34,7 +35,7 @@ export const transformJson = (obj: any): any => {
   if (Array.isArray(obj)) {
     return obj.map(transformJson);
   }
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const newObj: any = {};
 
   for (const key in obj) {
@@ -44,9 +45,9 @@ export const transformJson = (obj: any): any => {
       newObj[key] = obj[key]._text;
     } else if (
       Array.isArray(obj[key]) &&
-      obj[key].every((item: any) => item._text)
+      obj[key].every((item) => item._text)
     ) {
-      newObj[key] = obj[key].map((item: any) => item._text);
+      newObj[key] = obj[key].map((item) => item._text);
     } else {
       newObj[key] = transformJson(obj[key]);
     }

@@ -78,7 +78,7 @@ export type Response<U extends keyof Omit<CommandResponses, "Type">> = {
   ApiResponse: {
     xmlns: string;
     Status: string;
-    Errors: any;
+    Errors: unknown;
     RequestedCommand: `namecheap.${Methods}`;
     CommandResponse: Pick<CommandResponses, U | "Type">;
     Server: string;

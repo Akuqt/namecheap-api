@@ -41,7 +41,7 @@ export interface ParamsMap {
   "domains.getContacts": DomainsGetContactsParams;
   "domains.setContacts": DomainsSetContactsParams;
   "domains.create": DomainsCreateParams;
-  "domains.getTldList": {};
+  "domains.getTldList": never;
   "domains.check": DomainsCheckParams;
   "domains.reactivate": DomainsReactivateParams;
   "domains.renew": DomainsRenewParams;

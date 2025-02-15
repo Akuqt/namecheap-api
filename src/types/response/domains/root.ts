@@ -164,7 +164,7 @@ export type DomainGetInfoResult = {
     CreatedDate: string;
     ExpiredDate: string;
   };
-  LockDetails: any;
+  LockDetails: unknown;
   Whoisguard: {
     Enabled: string;
     ID: string;
