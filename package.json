@@ -8,14 +8,20 @@
   "private": false,
   "scripts": {
     "dev": "ts-node-dev --respawn src",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
     "@types/node": "^22.13.1",
     "@typescript-eslint/eslint-plugin": "^8.24.0",
     "@typescript-eslint/parser": "^8.24.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "pinst": "^3.0.0",
     "prettier": "^3.5.1",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.7.3",
