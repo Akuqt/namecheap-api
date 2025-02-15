@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn src",
     "build": "tsc",
+    "lint": "eslint --fix",
     "prepare": "husky"
   },
   "devDependencies": {
