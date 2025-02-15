@@ -3,8 +3,17 @@ import tseslint from "typescript-eslint";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
   {
+    ignores: [
+      "**/coverage/**",
+      "**/build/**",
+      "**/dist/**",
+      "**/release/**",
+      "**/lib/**",
+    ],
+  },
+  {
+    files: ["src/*.{js,mjs,cjs,ts,jsx,tsx}"],
     languageOptions: {
       parser: "@typescript-eslint/parser",
     },
@@ -22,13 +31,6 @@ export default [
       "no-unused-vars": "error",
       "no-console": "warn",
     },
-    ignores: [
-      "**/coverage/**",
-      "**/build/**",
-      "**/dist/**",
-      "**/release/**",
-      "**/lib/**",
-    ],
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
