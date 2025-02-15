@@ -1,0 +1,21 @@
+{
+  "name": "namecheap-api",
+  "version": "0.0.1",
+  "description": "Namecheap API handler",
+  "main": "index.js",
+  "author": "Akuqt",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "ts-node-dev --respawn src",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "xml-js": "^1.6.11"
+  }
+}
