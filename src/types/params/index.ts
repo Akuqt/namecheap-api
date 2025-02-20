@@ -35,6 +35,21 @@ import {
   DomainsTransferUpdateStatusParams,
 } from "./domains/transfer";
 
+import {
+  SSLRenewParams,
+  SSLCreateParams,
+  SSLGetListParams,
+  SSLGetInfoParams,
+  SSLParseCSRParams,
+  SSLEditDCVMethodParams,
+  SSLActivateResultParams,
+  SSLPurchaseMoreSANSParams,
+  SSLRevokeCertificateParams,
+  SSLResendApproverEmailParams,
+  SSLGetApproverEmailListParams,
+  SSLResendFulfillmentEmailParams,
+} from "./ssl/root";
+
 export interface ParamsMap {
   // domains
   "domains.getList": DomainsGetListParams;
@@ -66,4 +81,18 @@ export interface ParamsMap {
   "domains.transfer.getStatus": DomainsTransferGetStatusParams;
   "domains.transfer.updateStatus": DomainsTransferUpdateStatusParams;
   "domains.transfer.getList": DomainsTransferGetListParams;
+  // ssl
+  "ssl.create": SSLCreateParams;
+  "ssl.getList": SSLGetListParams;
+  "ssl.parseCSR": SSLParseCSRParams;
+  "ssl.getApproverEmailList": SSLGetApproverEmailListParams;
+  "ssl.activate": SSLActivateResultParams;
+  "ssl.resendApproverEmail": SSLResendApproverEmailParams;
+  "ssl.getInfo": SSLGetInfoParams;
+  "ssl.renew": SSLRenewParams;
+  "ssl.reissue": SSLActivateResultParams;
+  "ssl.resendfulfillmentemail": SSLResendFulfillmentEmailParams;
+  "ssl.purchasemoresans": SSLPurchaseMoreSANSParams;
+  "ssl.revokecertificate": SSLRevokeCertificateParams;
+  "ssl.editdcvmethod": SSLEditDCVMethodParams;
 }
