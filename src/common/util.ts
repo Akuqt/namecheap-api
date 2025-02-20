@@ -1,5 +1,5 @@
 import { stringify, type ParsedUrlQueryInput } from "node:querystring";
-import { NameCheapGlobalParams } from "../types";
+import { NameCheapEnv, NameCheapGlobalParams } from "../types";
 import xmlConverter from "xml-js";
 
 export type { ParsedUrlQueryInput };
@@ -56,4 +56,22 @@ export const transformJson = (obj: any): any => {
   }
 
   return newObj;
+};
+
+export const initGlobalParams = {
+  apiKey: "",
+  apiUser: "",
+  clientIP: "",
+  username: "",
+};
+
+export const getURI = (env: NameCheapEnv) => {
+  switch (env) {
+    case "production":
+      return "https://api.namecheap.com/xml.response";
+    case "sandbox":
+      return "https://api.sandbox.namecheap.com/xml.response";
+    default:
+      return "";
+  }
 };
