@@ -37,6 +37,21 @@ import {
   DomainTransferUpdateStatusResult,
 } from "./domains/transfer";
 
+import {
+  SSLListResult,
+  SSLRenewResult,
+  SSLCreateResult,
+  SSLGetInfoResult,
+  SSLParseCSRResult,
+  SSLActivateResult,
+  SSLEditDCVMethodResult,
+  RevokeCertificateResult,
+  SSLPurchaseMoreSANSResult,
+  GetApproverEmailListResult,
+  SSLResendApproverEmailResult,
+  SSLResendFulfillmentEmailResult,
+} from "./ssl/root";
+
 import { Methods } from "../methods";
 
 type CommandResponses = {
@@ -72,6 +87,19 @@ type CommandResponses = {
   DomainTransferCreateResult: DomainTransferCreateResult;
   DomainTransferGetStatusResult: DomainTransferGetStatusResult;
   DomainTransferUpdateStatusResult: DomainTransferUpdateStatusResult;
+  // ssl
+  SSLCreateResult: SSLCreateResult;
+  SSLListResult: SSLListResult;
+  SSLParseCSRResult: SSLParseCSRResult;
+  GetApproverEmailListResult: GetApproverEmailListResult;
+  SSLActivateResult: SSLActivateResult;
+  SSLResendApproverEmailResult: SSLResendApproverEmailResult;
+  SSLGetInfoResult: SSLGetInfoResult;
+  SSLRenewResult: SSLRenewResult;
+  SSLResendFulfillmentEmailResult: SSLResendFulfillmentEmailResult;
+  SSLPurchaseMoreSANSResult: SSLPurchaseMoreSANSResult;
+  RevokeCertificateResult: RevokeCertificateResult;
+  SSLEditDCVMethodResult: SSLEditDCVMethodResult;
 };
 
 export type Response<U extends keyof Omit<CommandResponses, "Type">> = {
@@ -89,7 +117,7 @@ export type Response<U extends keyof Omit<CommandResponses, "Type">> = {
 
 export type ResponseMap = {
   // domains
-  "domains.getList": Response<"DomainGetListResult">;
+  "domains.getList": Response<"DomainGetListResult" | "Paging">;
   "domains.getContacts": Response<"DomainContactsResult">;
   "domains.setContacts": Response<"DomainSetContactResult">;
   "domains.create": Response<"DomainCreateResult">;
@@ -118,4 +146,18 @@ export type ResponseMap = {
   "domains.transfer.getStatus": Response<"DomainTransferGetStatusResult">;
   "domains.transfer.updateStatus": Response<"DomainTransferUpdateStatusResult">;
   "domains.transfer.getList": Response<"TransferGetListResult" | "Paging">;
+  // ssl
+  "ssl.create": Response<"SSLCreateResult">;
+  "ssl.getList": Response<"SSLListResult" | "Paging">;
+  "ssl.parseCSR": Response<"SSLParseCSRResult">;
+  "ssl.getApproverEmailList": Response<"GetApproverEmailListResult">;
+  "ssl.activate": Response<"SSLActivateResult">;
+  "ssl.resendApproverEmail": Response<"SSLResendApproverEmailResult">;
+  "ssl.getInfo": Response<"SSLGetInfoResult">;
+  "ssl.renew": Response<"SSLRenewResult">;
+  "ssl.reissue": Response<"SSLActivateResult">;
+  "ssl.resendfulfillmentemail": Response<"SSLResendFulfillmentEmailResult">;
+  "ssl.purchasemoresans": Response<"SSLPurchaseMoreSANSResult">;
+  "ssl.revokecertificate": Response<"RevokeCertificateResult">;
+  "ssl.editdcvmethod": Response<"SSLEditDCVMethodResult">;
 };
