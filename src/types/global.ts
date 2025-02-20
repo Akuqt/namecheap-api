@@ -7,3 +7,5 @@ export type NameCheapGlobalParams = {
   username: string;
   clientIP: string;
 };
+
+export type NameCheapEnv = "production" | "sandbox";
