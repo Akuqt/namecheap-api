@@ -18,7 +18,7 @@ export const XMLToJSON = (xml: string) => {
     compact: true,
     ignoreComment: true,
     ignoreDeclaration: true,
-    ignoreCdata: true,
+    ignoreCdata: false,
     ignoreDoctype: true,
     ignoreInstruction: true,
     spaces: 4,
@@ -43,6 +43,8 @@ export const transformJson = (obj: any): any => {
       Object.assign(newObj, obj[key]);
     } else if (typeof obj[key] === "object" && "_text" in obj[key]) {
       newObj[key] = obj[key]._text;
+    } else if (typeof obj[key] === "object" && "_cdata" in obj[key]) {
+      newObj[key] = obj[key]._cdata;
     } else if (
       Array.isArray(obj[key]) &&
       obj[key].every((item) => item._text)
