@@ -1,11 +1,27 @@
 {
   "name": "namecheap-api",
-  "version": "0.0.1",
-  "description": "Namecheap API handler",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "Namecheap API allows developers to easily interact with Namecheap's domain registration and management services. The goal is to provide a simple and intuitive interface for performing common tasks such as registering domains, managing DNS settings, and handling SSL certificates.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "author": "Akuqt",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akuqt/namecheap-api.git"
+  },
+  "keywords": [
+    "api",
+    "namecheap",
+    "nodejs",
+    "https",
+    "requests"
+  ],
+  "bugs": {
+    "url": "https://github.com/Akuqt/namecheap-api/issues"
+  },
+  "homepage": "https://github.com/Akuqt/namecheap-api#readme",
   "scripts": {
     "dev": "ts-node-dev --respawn src",
     "build": "tsc",
