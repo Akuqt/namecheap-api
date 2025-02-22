@@ -14,30 +14,33 @@ The Namecheap API allow developers to easily interact with Namecheap's domain re
 To install the package, use the following command:
 
 ```bash
-npm install namecheap-api
+npm install namecheap-api-client
+```
+
+```bash
+yarn add namecheap-api-client
 ```
 
 ## Usage
 
 Here is a basic example of how to use the API:
 
-```javascript
-import { NameCheap } from "namecheap-api";
-(async () => {
-  const namecheap = new NameCheap({
-    apiKey: "<...api key...>",
-    apiUser: "user",
-    clientIP: "127.0.0.1",
-    username: "user",
-  });
+```typescript
+import { NameCheap } from "namecheap-api-client";
 
-  const res = await namecheap.query("domains.dns.getHosts", {
-    SLD: "example",
-    TLD: "com",
-  });
+const namecheap = new NameCheap({
+  apiKey: "<...api key...>",
+  apiUser: "user",
+  clientIP: "127.0.0.1",
+  username: "user",
+});
 
-  console.log(res.ApiResponse.CommandResponse.DomainDNSGetHostsResult);
-})();
+const res = await namecheap.query("domains.dns.getHosts", {
+  SLD: "example",
+  TLD: "com",
+});
+
+console.log(res.ApiResponse.CommandResponse.DomainDNSGetHostsResult);
 ```
 
 ## License
