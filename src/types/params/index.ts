@@ -50,6 +50,25 @@ import {
   SSLResendFulfillmentEmailParams,
 } from "./ssl/root";
 
+import {
+  UserLoginParams,
+  UserCreateParams,
+  UserUpdateParams,
+  UserGetPricingParams,
+  GetAddFundsStatusParams,
+  UserResetPasswordParams,
+  UserChangePasswordParams,
+  CreateaddfundsrequestParams,
+} from "./users/root";
+
+import {
+  AddressCreateParams,
+  AddressDeleteParams,
+  GetAddressInfoParams,
+  AddressUpdateParams,
+  AddressSetDefaultParams,
+} from "./users/address";
+
 export interface ParamsMap {
   // domains
   "domains.getList": DomainsGetListParams;
@@ -95,4 +114,21 @@ export interface ParamsMap {
   "ssl.purchasemoresans": SSLPurchaseMoreSANSParams;
   "ssl.revokecertificate": SSLRevokeCertificateParams;
   "ssl.editdcvmethod": SSLEditDCVMethodParams;
+  // users
+  "users.getPricing": UserGetPricingParams;
+  "users.getBalances": never;
+  "users.changePassword": UserChangePasswordParams;
+  "users.update": UserUpdateParams;
+  "users.createaddfundsrequest": CreateaddfundsrequestParams;
+  "users.getAddFundsStatus": GetAddFundsStatusParams;
+  "users.create": UserCreateParams;
+  "users.login": UserLoginParams;
+  "users.resetPassword": UserResetPasswordParams;
+  // users.address
+  "users.address.create": AddressCreateParams;
+  "users.address.delete": AddressDeleteParams;
+  "users.address.getInfo": GetAddressInfoParams;
+  "users.address.getList": never;
+  "users.address.setDefault": AddressSetDefaultParams;
+  "users.address.update": AddressUpdateParams;
 }
