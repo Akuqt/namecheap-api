@@ -52,10 +52,29 @@ import {
   SSLResendFulfillmentEmailResult,
 } from "./ssl/root";
 
-import { Methods } from "../methods";
+import {
+  UserLoginResult,
+  UserCreateResult,
+  UserUpdateResult,
+  UserGetPricingResult,
+  UserGetBalancesResult,
+  UserResetPasswordResult,
+  GetAddFundsStatusResult,
+  UserChangePasswordResult,
+  Createaddfundsrequestresult,
+} from "./users/root";
+
+import {
+  AddressCreateResult,
+  AddressDeleteResult,
+  AddressUpdateResult,
+  GetAddressInfoResult,
+  AddressGetListResult,
+  AddressSetDefaultResult,
+} from "./users/address";
 
 type CommandResponses = {
-  Type: `namecheap.${Methods}`;
+  Type: `namecheap.${keyof ResponseMap}`;
   // domains
   DomainGetListResult: DomainGetListResult;
   Paging: Paging;
@@ -100,6 +119,23 @@ type CommandResponses = {
   SSLPurchaseMoreSANSResult: SSLPurchaseMoreSANSResult;
   RevokeCertificateResult: RevokeCertificateResult;
   SSLEditDCVMethodResult: SSLEditDCVMethodResult;
+  // users
+  UserGetPricingResult: UserGetPricingResult;
+  UserGetBalancesResult: UserGetBalancesResult;
+  UserChangePasswordResult: UserChangePasswordResult;
+  UserUpdateResult: UserUpdateResult;
+  Createaddfundsrequestresult: Createaddfundsrequestresult;
+  GetAddFundsStatusResult: GetAddFundsStatusResult;
+  UserCreateResult: UserCreateResult;
+  UserLoginResult: UserLoginResult;
+  UserResetPasswordResult: UserResetPasswordResult;
+  // users.address
+  AddressCreateResult: AddressCreateResult;
+  AddressDeleteResult: AddressDeleteResult;
+  GetAddressInfoResult: GetAddressInfoResult;
+  AddressGetListResult: AddressGetListResult;
+  AddressSetDefaultResult: AddressSetDefaultResult;
+  AddressUpdateResult: AddressUpdateResult;
 };
 
 export type Response<U extends keyof Omit<CommandResponses, "Type">> = {
@@ -107,7 +143,7 @@ export type Response<U extends keyof Omit<CommandResponses, "Type">> = {
     xmlns: string;
     Status: string;
     Errors: unknown;
-    RequestedCommand: `namecheap.${Methods}`;
+    RequestedCommand: `namecheap.${keyof ResponseMap}`;
     CommandResponse: Pick<CommandResponses, U | "Type">;
     Server: string;
     GMTTimeDifference: string;
@@ -160,4 +196,21 @@ export type ResponseMap = {
   "ssl.purchasemoresans": Response<"SSLPurchaseMoreSANSResult">;
   "ssl.revokecertificate": Response<"RevokeCertificateResult">;
   "ssl.editdcvmethod": Response<"SSLEditDCVMethodResult">;
+  // users
+  "users.getPricing": Response<"UserGetPricingResult">;
+  "users.getBalances": Response<"UserGetBalancesResult">;
+  "users.changePassword": Response<"UserChangePasswordResult">;
+  "users.update": Response<"UserUpdateResult">;
+  "users.createaddfundsrequest": Response<"Createaddfundsrequestresult">;
+  "users.getAddFundsStatus": Response<"GetAddFundsStatusResult">;
+  "users.create": Response<"UserCreateResult">;
+  "users.login": Response<"UserLoginResult">;
+  "users.resetPassword": Response<"UserResetPasswordResult">;
+  // users.address
+  "users.address.create": Response<"AddressCreateResult">;
+  "users.address.delete": Response<"AddressDeleteResult">;
+  "users.address.getInfo": Response<"GetAddressInfoResult">;
+  "users.address.getList": Response<"AddressGetListResult">;
+  "users.address.setDefault": Response<"AddressSetDefaultResult">;
+  "users.address.update": Response<"AddressUpdateResult">;
 };
