@@ -73,6 +73,14 @@ import {
   AddressSetDefaultResult,
 } from "./users/address";
 
+import {
+  WhoisguardRenewResult,
+  WhoisguardEnableResult,
+  WhoisguardDisableResult,
+  WhoisguardGetListResult,
+  WhoisguardChangeEmailAddressResult,
+} from "./whoisguard/root";
+
 type CommandResponses = {
   Type: `namecheap.${keyof ResponseMap}`;
   // domains
@@ -136,6 +144,12 @@ type CommandResponses = {
   AddressGetListResult: AddressGetListResult;
   AddressSetDefaultResult: AddressSetDefaultResult;
   AddressUpdateResult: AddressUpdateResult;
+  // whoisguard
+  WhoisguardChangeEmailAddressResult: WhoisguardChangeEmailAddressResult;
+  WhoisguardEnableResult: WhoisguardEnableResult;
+  WhoisguardDisableResult: WhoisguardDisableResult;
+  WhoisguardGetListResult: WhoisguardGetListResult;
+  WhoisguardRenewResult: WhoisguardRenewResult;
 };
 
 export type Response<U extends keyof Omit<CommandResponses, "Type">> = {
@@ -213,4 +227,10 @@ export type ResponseMap = {
   "users.address.getList": Response<"AddressGetListResult">;
   "users.address.setDefault": Response<"AddressSetDefaultResult">;
   "users.address.update": Response<"AddressUpdateResult">;
+  // whoisguard
+  "whoisguard.changeemailaddress": Response<"WhoisguardChangeEmailAddressResult">;
+  "whoisguard.enable": Response<"WhoisguardEnableResult">;
+  "whoisguard.disable": Response<"WhoisguardDisableResult">;
+  "whoisguard.getList": Response<"WhoisguardGetListResult">;
+  "whoisguard.renew": Response<"WhoisguardRenewResult">;
 };
