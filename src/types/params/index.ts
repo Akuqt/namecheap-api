@@ -69,6 +69,14 @@ import {
   AddressSetDefaultParams,
 } from "./users/address";
 
+import {
+  WhoisguardRenewParams,
+  WhoisguardEnableParams,
+  WhoisguardDisableParams,
+  WhoisguardGetListParams,
+  WhoisguardChangeEmailAddressParams,
+} from "./whoisguard/root";
+
 export interface ParamsMap {
   // domains
   "domains.getList": DomainsGetListParams;
@@ -131,4 +139,10 @@ export interface ParamsMap {
   "users.address.getList": never;
   "users.address.setDefault": AddressSetDefaultParams;
   "users.address.update": AddressUpdateParams;
+  // whoisguard
+  "whoisguard.changeemailaddress": WhoisguardChangeEmailAddressParams;
+  "whoisguard.enable": WhoisguardEnableParams;
+  "whoisguard.disable": WhoisguardDisableParams;
+  "whoisguard.getList": WhoisguardGetListParams;
+  "whoisguard.renew": WhoisguardRenewParams;
 }
