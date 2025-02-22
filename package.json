@@ -1,6 +1,6 @@
 {
   "name": "namecheap-api-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Namecheap API allows developers to easily interact with Namecheap's domain registration and management services. The goal is to provide a simple and intuitive interface for performing common tasks such as registering domains, managing DNS settings, and handling SSL certificates.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
